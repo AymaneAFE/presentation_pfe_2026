@@ -1,0 +1,83 @@
+\usepackage{siunitx,booktabs,xcolor,xspace,multirow,graphicx,lipsum}
+\usepackage[spanish,mexico,es-noindentfirst]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usepackage{subcaption}
+\usepackage[charter]{mathdesign}
+\usetheme{Madrid}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+
+\usefonttheme{serif}
+
+
+\setbeamertemplate{frametitle}{
+  \begin{beamercolorbox}[wd=\paperwidth,ht=1cm, sep=0.25cm]{frametitle}
+    \begin{tikzpicture}[remember picture,overlay]
+      \node[anchor=north east] at (current page.north east) {\includegraphics[height=0.75cm]{special_figures/Turix_nobg.png}};
+    \end{tikzpicture}
+    \usebeamerfont{frametitle}\bfseries\insertframetitle
+  \end{beamercolorbox}
+}
+
+\setbeamertemplate{caption}[numbered]
+\setbeamercolor{frametitle}{bg=beamer_color,fg=white}
+\setbeamercolor{author in head/foot}{bg=beamer_color,fg=white}
+\setbeamercolor{title in head/foot}{bg=beamer_color,fg=white}
+\setbeamercolor{date in head/foot}{bg=beamer_color,fg=white}
+\setbeamercolor{titlelike}{parent=structure,bg=beamer_color,fg=white}
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}[subsections numbered]
+\setbeamerfont{section in toc}{series=\bfseries}
+\setbeamercolor{section in toc}{fg=black}
+\setbeamercolor{caption name}{fg=blue}
+\setbeamerfont{caption name}{series=\bfseries}
+\setbeamerfont{caption}{size=\small}
+\setbeamercolor{bibliography entry author}{fg=black}
+\setbeamercolor{bibliography entry title}{fg=black} 
+\setbeamertemplate{section in toc}{\inserttocsectionnumber.~\inserttocsection\par}
+\setbeamertemplate{subsection in toc}{\hspace{1.5em}\inserttocsectionnumber.\inserttocsubsectionnumber~\inserttocsubsection\par}
+
+
+
+\title[\textbf{Título de la tesis}]{\textbf{Título de la tesis}}
+\author[\textbf{Nombre del tesista}]{\textbf{Nombre del tesista \\ micorreoelectronico@tuxtla.tecnm.mx}}
+\date{\textbf{Mes, Año}}
+
+\renewcommand{\maketitle}{
+\vspace{0.5\baselineskip}
+
+\begin{center}
+    \includegraphics[height=1.25cm]{special_figures/TecNM.jpg}\hfill
+    \includegraphics[height=1.25cm]{special_figures/ITTG.png}\hfill
+    \includegraphics[height=1.25cm]{special_figures/Turix.png}\hfill
+\end{center}
+
+\begin{center}
+    \textbf{MAESTRÍA EN CIENCIAS EN INGENERÍA MECATRÓNICA}
+\end{center}
+
+\titlepage
+\vspace{\baselineskip}
+\begin{center}
+    \small
+    \vspace{-2.5\baselineskip}
+    Director(es) de la Tesis: Nombre(s) de director(es) de la tesis\\
+    Revisor 1: Nombre del primer revisor\\
+    Revisor 2: Nombre del segundo revisor\\
+\end{center}
+}
+
+% \AtBeginSection[ ]
+% {
+% \begin{frame}{Contenido de la presentación}
+% \tableofcontents[currentsection,subsectionstyle = shaded]
+% \end{frame}
+% }
+
+% \AtBeginSubsection[ ]
+% {
+% \begin{frame}{Contenido de la presentación}
+% \tableofcontents[currentsection,currentsubsection]
+% \end{frame}
+% }
