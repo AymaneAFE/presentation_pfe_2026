@@ -40,32 +40,45 @@
 
 
 
+% Réduire la taille du titre pour gagner de la place sur la diapo de titre
+\setbeamerfont{title}{size=\large,series=\bfseries}
+
 \title[\textbf{Réalisation d’une plateforme intelligente pour l’analyse des incidents en  environnement de production}]{\textbf{Réalisation d’une plateforme intelligente pour l’analyse des incidents en  environnement de production}}
 \author[\textbf{Aymane FAJR EL IDRISSI}]{\textbf{Aymane FAJR EL IDRISSI}}
 \date{\today}
 
 \renewcommand{\maketitle}{
-\vspace{0.5\baselineskip}
+\vspace{0.3\baselineskip}
 
 \begin{center}
     \includegraphics[height=1cm]{special_figures/logoENsam.png}\hfill
     % \includegraphics[height=1.25cm]{special_figures/ITTG.png}\hfill
-    \includegraphics[height=0.9cm]{special_figures/Logo_inwi.png}\hfill
+    \includegraphics[height=0.9cm]{special_figures/Logo_inwi.png}
 \end{center}
 
-\begin{center}
+\begin{center}\small
     \textbf{Projet de Fin d’Études présenté en vue de l’obtention du titre d’ingénieur d’État}
 \end{center}
 
-\titlepage
-\vspace{\baselineskip}
-\begin{center}
-    \scriptsize
-    \vspace{-2.5\baselineskip}
-    Pr. TSOULI Azzeddine | Professeur à l’ENSAM de Casablanca | President
-    M. EL AZZOUZI Mohamed | Manager Production SI à Inwi | Parrain de Stage
-    Pr. BAHASSINE Said | Professeur à l’ENSAM de Casablanca | Examinateur
-    Pr. ZAKRANI Abdelali | Professeur à l’ENSAM de Casablanca | Encadrant
+% Cadre de titre seul (auteur et date neutralisés, replacés manuellement ci-dessous)
+{\let\insertauthor\empty \let\insertdate\empty \titlepage}
+
+\vspace{-1.5\baselineskip}
+\begin{center}\small
+    Présenté et soutenu publiquement par :\\[2pt]
+    \textbf{Aymane FAJR EL IDRISSI}\\[4pt]
+    \today
+\end{center}
+
+\vspace{0.2\baselineskip}
+\begin{center}\small Devant le jury composé de :\end{center}
+\begin{center}\scriptsize
+\begin{tabular}{lll}
+    Pr. TSOULI Azzeddine   & (Président)        & ENSAM Casablanca\\[1pt]
+    Pr. ZAKRANI Abdelali   & (Encadrant)        & ENSAM Casablanca\\[1pt]
+    M. EL AZZOUZI Mohamed  & (Parrain de stage) & Inwi\\[1pt]
+    Pr. BAHASSINE Said     & (Examinateur)      & ENSAM Casablanca\\
+\end{tabular}
 \end{center}
 }
 
