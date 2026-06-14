@@ -35,8 +35,24 @@
 \setbeamerfont{caption}{size=\scriptsize}
 \setbeamercolor{bibliography entry author}{fg=black}
 \setbeamercolor{bibliography entry title}{fg=black} 
-\setbeamertemplate{section in toc}{\inserttocsectionnumber.~\inserttocsection\par}
-\setbeamertemplate{subsection in toc}{\hspace{1.5em}\inserttocsectionnumber.\inserttocsubsectionnumber~\inserttocsubsection\par}
+% --- Sommaire stylisé : cartes/bandes ---
+\setbeamertemplate{section in toc}{%
+  \vspace{0.35em}\par
+  \tcbox[on line,nobeforeafter,
+         colback=backframe_color,colframe=beamer_color,
+         boxrule=0.6pt,arc=3pt,
+         left=8pt,right=8pt,top=3pt,bottom=3pt,
+         width=0.92\textwidth,halign=left]{%
+     {\color{beamer_color}\bfseries\inserttocsectionnumber\,\textbullet\,}%
+     {\bfseries\inserttocsection}}%
+  \par
+}
+\setbeamertemplate{subsection in toc}{%
+  \hspace{2.2em}{\color{beamer_color}\guilsinglright}~\inserttocsubsection\par\vspace{0.1em}%
+}
+% Entrées non courantes estompées (sommaire progressif)
+\setbeamertemplate{section in toc shaded}[default][35]
+\setbeamertemplate{subsection in toc shaded}[default][35]
 
 
 
@@ -87,12 +103,12 @@
 \end{center}
 }
 
-% \AtBeginSection[ ]
-% {
-% \begin{frame}{Contenido de la presentación}
-% \tableofcontents[currentsection,subsectionstyle = shaded]
-% \end{frame}
-% }
+% Sommaire progressif : rappel avant chaque section
+\AtBeginSection[]{
+\begin{frame}{Sommaire de la présentation}
+\tableofcontents[currentsection,subsectionstyle=hide]
+\end{frame}
+}
 
 % \AtBeginSubsection[ ]
 % {
