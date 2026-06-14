@@ -20,201 +20,60 @@
     \tableofcontents
 \end{frame}
 
-\section{Comment utiliser le format de diapositives Turix}
+\section{Contexte général}
 
-\subsection{Texte}
-
-\begin{frame}{Mettre le texte en forme}
-
-\textit{Ceci est du texte en italique.} \textbf{Ceci est du texte en gras.} \texttt{Ceci est du texte en police machine à écrire.}
-
-\tiny{Ceci est du texte minuscule.}
-\scriptsize{Ceci est du texte très petit.}
-\footnotesize{Ce texte a la taille d'une note de bas de page.}
-\small{Ce texte est légèrement plus petit que la normale.}
-\normalsize{Ce texte a une taille normale.}
-\large{Ce texte est légèrement plus grand que la normale.}
-\Large{Ce texte est grand.}
-\LARGE{Ce texte est encore plus grand.}
-\huge{Ce texte est énorme.}
-\Huge{Ceci est la plus grande taille possible.}
-
+\subsection{Présentation de l'entreprise}
+\begin{frame}{Présentation de l'entreprise}
+    % TODO : présentation d'inwi (activité, organisation, DSI / Production SI)
 \end{frame}
 
-\subsection{Encadrés}
-
-\begin{frame}{Insérer des encadrés}
-    \begin{tcolorbox}[colback=backframe_color,colframe=beamer_color,title=Voici le titre de l'encadré]
-    Voici un encadré avec titre
-    \end{tcolorbox}
-
-    \begin{tcolorbox}[colback=backframe_color,colframe=beamer_color]
-    Voici un encadré sans titre
-    \end{tcolorbox}
+\subsection{Problématique}
+\begin{frame}{Problématique}
+    % TODO : difficultés actuelles dans la gestion des incidents en production
 \end{frame}
 
-\subsection{Listes}
-
-\begin{frame}{Insérer une liste}
-
-Voici une liste numérotée
-\begin{enumerate}
-    \item Ceci est le premier élément numéroté.
-    \item Ceci est le deuxième élément numéroté.
-    \item Ceci est le troisième élément numéroté.
-\end{enumerate}
-
-Voici une liste non numérotée
-\begin{itemize}
-    \item Ceci est le premier élément.
-    \item Ceci est le deuxième élément.
-    \item Ceci est le troisième élément.
-\end{itemize}
-
-\end{frame}
-
-\subsection{Figures}
-
-\begin{frame}{Insérer des figures}
-    Chargez vos images dans le dossier \texttt{figuras}. Les images du dossier \texttt{special figures} servent à la mise en forme de la diapositive.
-
-    La Figure \ref{fig:red_ramificada} montre un exemple d'insertion et de référencement d'images.
-
-    \begin{figure}[htbp]
-        \centering
-        \includegraphics[width = \textwidth]{figuras/BranchedScheme.pdf} % Utiliser votre propre fichier image. Redimensionner si nécessaire
-        \caption{Réseau à $k$ ramifications.} % Utiliser votre propre description
-        \label{fig:red_ramificada} % Utiliser votre propre étiquette
-    \end{figure}
-\end{frame}
-
-\begin{frame}{Insérer des figures côte à côte}
-
-    La Figure \ref{fig:comparacion_redes} montre comment insérer deux figures côte à côte.
-
-    \begin{figure}[htbp]
-    \centering
-    \begin{subfigure}[b]{0.48\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figuras/LSTM.pdf}
-        \caption{Réseau LSTM}
-        \label{fig:figura1a}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.48\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{figuras/TDNN.pdf}
-        \caption{Réseau TDNN}
-        \label{fig:figura1b}
-    \end{subfigure}
-    \caption[Comparaison entre deux réseaux de neurones]{Comparaison entre deux réseaux de neurones}
-    \label{fig:comparacion_redes}
-\end{figure}
-
+\subsection{Objectifs}
+\begin{frame}{Objectifs}
+    % TODO : objectifs du projet
 \end{frame}
 
 
-\subsection{Équations}
+\section{Gestion des incidents : contexte métier et étude de l'existant}
 
-\begin{frame}{Insérer des équations}
-    Exemple d'une équation numérotée :
-    \begin{equation}
-        \frac{\partial Q\left(z_k,t\right)}{\partial t}+gA_k\frac{\partial H\left(z_k,t\right)}{\partial z_k}+\mu_kQ\left(z_k,t\right)\left|Q\left(z_k,t\right)\right|+g\sin{a_k}=0,
-        \label{eq:momentum}
-    \end{equation}
-    Une équation numérotée est référencée dans le texte via son \textit{étiquette} : l'Équation \eqref{eq:momentum} est connue sous le nom d'Équation de la Quantité de Mouvement.
+\begin{frame}{Gestion des incidents : contexte métier}
+    % TODO : cycle de vie d'un incident, enjeux SRE/AIOps
+\end{frame}
 
-    Exemple d'une équation non numérotée :
-    $$\frac{\partial H\left(z_k,t\right)}{\partial t}+\frac{b_k^2}{gA_k}\frac{\partial Q\left(z_k,t\right)}{\partial z_k}=0.$$
-
-    Voici un exemple d'équation dans le texte : $\mu_k=\frac{fQ_k}{2D_kA_k}$
+\begin{frame}{Étude de l'existant}
+    % TODO : outils et approches existants, limites, justification de la solution
 \end{frame}
 
 
-\subsection{Tableaux}
+\section{Conception}
 
-\begin{frame}{Insérer un tableau}
-    Le Tableau \ref{tab:ModelosPerdida} montre un exemple d'insertion d'un tableau à une colonne. Les tableaux nécessitent la \texttt{caption} en haut
-
-    \begin{table}[htbp]
-        \centering
-         \caption{Formules pour le calcul des pertes de charge dans les conduites.}
-         \vspace{-\baselineskip}
-        \label{tab:ModelosPerdida}
-        \small
-        \begin{tabular}{ccc}
-            \toprule
-            \textbf{Modèle de perte} & \textbf{Coefficient de résistance} $C$ & \textbf{Exposant de débit} $\sigma$ \\
-            \midrule
-            Hazen-Williams & $4.727 \mathscr{H}^{-1.852}D^{-4.871}L$ & 1.852 \\
-            Darcy-Weisbach & $0.0252f(\varepsilon, D, Q)D^{-5}L$ & 2 \\
-            Chezy-Manning & $4.66n^2D^{-5.33}L$ & 2 \\
-            \bottomrule
-        \end{tabular}
-    \end{table}
-\end{frame}
-
-\begin{frame}{Insérer des tableaux à double colonne}
-
-    Le Tableau \ref{Tab:Accesorios} montre un exemple d'un tableau à deux colonnes.
-
-    \begin{table}[htbp]
-        \centering
-        \caption{Accessoires dans chaque segment de conduite.}
-        \vspace{-\baselineskip}
-        \label{Tab:Accesorios}
-        \null\hfill
-        \scriptsize
-        \begin{tabular}{cl}
-        % \multicolumn{2}{c}{a) Conduites 1-8}\\[2pt]
-        \toprule
-        \textbf{Nœuds initial et final} & \textbf{Accessoires} \\
-        \midrule
-        $\text{N}_{1}-\text{N}_{2}$ & 2 Coudes 90°\\
-        $\text{N}_{2}-\text{N}_{3}$ & 4 Coudes 90° \\
-
-        $\text{N}_{4}-\text{N}_{5}$ & 2 Coudes 90° \\
-        $\text{N}_{5}-\text{N}_{6}$ & 4 Coudes 90° \\
-
-        $\text{N}_{7}-\text{N}_{8}$ & 2 Coudes 90° \\
-        $\text{N}_{8}-\text{N}_{9}$ & 4 Coudes 90° \\
-        \bottomrule
-        \end{tabular}
-        \hfill\hfill
-        \begin{tabular}{cl}
-        % \multicolumn{2}{c}{b) Conduites 9-16}\\[2pt]
-        \toprule
-        \textbf{Nœuds initial et final} & \textbf{Accessoires} \\
-        \midrule
-        $\text{N}_{4}-\text{N}_{10}$ & 1 Coude 90°, 1 Vanne, 1 T \\
-
-        $\text{N}_{11}-\text{N}_{12}$ & 4 Coudes 90° \\
-        $\text{N}_{12}-\text{N}_{13}$ & 2 Coudes 90° \\
-        $\text{N}_{6}-\text{N}_{14}$ & 1 Coude 90°, 1 Vanne, 1 T \\
-
-        $\text{N}_{15}-\text{N}_{16}$ & 2 Coudes 90° \\
-        $\text{N}_{16}-\text{N}_{17}$ & 4 Coudes 90° \\
-        \bottomrule
-        \end{tabular}
-        \hfill\null
-    \end{table}
-
+\begin{frame}{Architecture de la solution}
+    % TODO : architecture globale, choix de conception
 \end{frame}
 
 
-\section{Références}
+\section{Réalisation}
 
-\begin{frame}{Citations bibliographiques}
-    Ajoutez vos références dans le document \texttt{biblio.bib} au format \texttt{BibTeX}.
-
-    Voici une citation d'une seule référence \cite{zhang2017digital}.
-    On peut citer deux références ou plus dans une seule citation en les séparant par des virgules \cite{praks2018advanced,santos2018online}.
-    Les références sont ajoutées automatiquement dans la bibliographie.
+\begin{frame}{Stack technique et mise en œuvre}
+    % TODO : technologies, agents, intégration, captures de la plateforme
 \end{frame}
 
-\begin{frame}[allowframebreaks]{Bibliographie}
-\bibliographystyle{ieeetr}
-\bibliography{biblio}
+
+\section{Tests et résultats}
+
+\begin{frame}{Tests et résultats}
+    % TODO : métriques des modèles, validation, démonstration
+\end{frame}
+
+
+\section{Conclusion et perspectives}
+
+\begin{frame}{Conclusion et perspectives}
+    % TODO : bilan, apports, perspectives d'amélioration
 \end{frame}
 
 
