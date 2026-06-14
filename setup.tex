@@ -60,10 +60,15 @@
     \textbf{Projet de Fin d’Études présenté en vue de l’obtention du titre d’ingénieur d’État}
 \end{center}
 
-% Cadre de titre seul (auteur et date neutralisés, replacés manuellement ci-dessous)
-{\let\insertauthor\empty \let\insertdate\empty \titlepage}
+% Cadre de titre dessiné manuellement (évite les vfills de \titlepage)
+\vspace{0.5\baselineskip}
+\begin{center}
+\begin{beamercolorbox}[wd=0.95\paperwidth,sep=8pt,center,rounded=true]{titlelike}
+    \usebeamerfont{title}\inserttitle
+\end{beamercolorbox}
+\end{center}
 
-\vspace{-1.5\baselineskip}
+\vspace{0.6\baselineskip}
 \begin{center}\small
     Présenté et soutenu publiquement par :\\
     \textbf{Aymane FAJR EL IDRISSI}\\
