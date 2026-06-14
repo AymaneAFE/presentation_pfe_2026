@@ -41,11 +41,16 @@
   \pgfmathsetmacro{\tly}{-(#2-1)*1.15}%
   \pgfmathsetmacro{\tlcx}{#3*1.0}%
   \pgfmathsetmacro{\tllx}{#3*1.12}%
+  \ifnum#3>0\relax \def\tlanchor{west}\else \def\tlanchor{east}\fi
+  \ifnum#1=#2\relax
+     \def\tldotstyle{curdot}\def\tllabcol{beamer_color}%
+  \else
+     \def\tldotstyle{dot}%
+     \ifnum#1=0\relax \def\tllabcol{black}\else \def\tllabcol{black!45}\fi
+  \fi
   \draw (0,\tly) -- (\tlcx,\tly);
-  \node[font=\bfseries\large, anchor=\ifnum#3>0 west\else east\fi]
-       at (\tllx,\tly)
-       {\ifnum#1=#2\color{beamer_color}\else\ifnum#1=0\color{black}\else\color{black!45}\fi\fi #4};
-  \node[\ifnum#1=#2 curdot\else dot\fi] at (0,\tly) {};
+  \node[font=\bfseries\large, anchor=\tlanchor, text=\tllabcol] at (\tllx,\tly) {#4};
+  \node[\tldotstyle] at (0,\tly) {};
 }
 % Sommaire complet ; #1 = numéro de section à mettre en avant (0 = aucune)
 \newcommand{\sommairetimeline}[1]{%
