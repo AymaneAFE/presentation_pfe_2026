@@ -90,22 +90,16 @@
         \end{column}
         % --- Colonne droite : l'exemple réel ---
         \begin{column}{0.50\textwidth}
-            \footnotesize
-            \begin{block}{Exemple : hôte \texttt{ubuntu-target} éteint}
-                Une panne réelle injectée : l'hôte
-                \texttt{ubuntu-target} (192.168.10.130) est
-                volontairement éteint. Centreon détecte les ressources
-                en défaut et génère \textbf{cinq alertes} :
-                \begin{enumerate}
-                    \item Vérification d'hôte (\textit{ping})
-                    \item Vérification de service \textit{Ping} dédiée
-                    \item Trois sondes SNMP \textit{Load}
-                    \item \textit{Swap}
-                    \item \textit{Memory}
-                \end{enumerate}
+            \scriptsize
+            \begin{block}{Exemple : disque saturé}
+                Le disque d'un serveur atteint \textbf{100\% d'occupation}:
+                \begin{itemize}
+                    \item Des application ne peut plus y écrire
+                    \item La base de données refuse les écritures
+                    \item Les sauvegardes échouent
+                    \item Le service plante avec des erreurs en cascade
+                \end{itemize}
                 \vspace{0.3em}
-                Un \textbf{seul incident source} à l'origine de toutes ces
-                alertes : d'où la nécessité de les \textbf{corréler}.
             \end{block}
         \end{column}
     \end{columns}
@@ -119,8 +113,11 @@
 
 \section{Conception}
 
-\begin{frame}{Conception}
-    % TODO : architecture globale, choix de conception
+\begin{frame}{Conception - Cycle de vie d'un incident}
+    \begin{figure}
+        \centering
+        \includegraphics[width=1\linewidth]{cycle-incident.png}
+    \end{figure}
 \end{frame}
 
 
