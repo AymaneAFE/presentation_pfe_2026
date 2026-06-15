@@ -118,11 +118,11 @@
 \resizebox{0.95\linewidth}{!}{%
 \begin{tikzpicture}[
   >=Stealth,
-  st/.style={rounded corners=3pt, draw=beamer_color, line width=0.8pt,
-             minimum width=2.7cm, minimum height=0.95cm, align=center,
-             font=\footnotesize\bfseries, text=black},
+  st/.style={rounded corners=3pt, draw=beamer_color, line width=0.7pt,
+             minimum width=2.2cm, minimum height=0.78cm, align=center,
+             font=\scriptsize\bfseries, text=black},
   term/.style={st, draw=beamer_color!85!black, fill=beamer_color, text=white},
-  lbl/.style={font=\scriptsize, align=center, inner sep=2pt},
+  lbl/.style={font=\tiny, align=center, inner sep=1.5pt},
   arr/.style={->, line width=0.9pt, draw=beamer_color!70!black},
 ]
 % colonnes x = 0 / 5.3 ; lignes y = 0 / -2.5 / -5.0
@@ -138,7 +138,7 @@
 \node[circle, fill=beamer_color, minimum size=5pt, inner sep=0pt] at (-2.6,-5.0) {};
 % --- descente + chemin nominal ---
 \draw[arr] (ini) -- (det) node[lbl,midway,above]{INCIDENT\_CREATED\\\itshape(corrélation)};
-\draw[arr] (det) -- (inv) node[lbl,midway,right]{INVESTIGATION\_STARTED\\\itshape(agent RCA)};
+\draw[arr] (det) -- (inv) node[lbl,midway,left]{INVESTIGATION\_STARTED\\\itshape(agent RCA)};
 \draw[arr] (inv) -- (wfr) node[lbl,midway,above]{INVESTIGATION\_COMPLETE\\\itshape(agent RCA)};
 \draw[arr] (wfr) -- (val) node[lbl,midway,right]{SRE\_VALIDATED\_\\HYPOTHESIS\\\itshape(opérateur)};
 % --- demi-tour : VALIDATED -> CLOSED (vers la gauche) ---
