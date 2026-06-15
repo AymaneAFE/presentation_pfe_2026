@@ -126,18 +126,18 @@
   arr/.style={->, line width=0.9pt, draw=beamer_color!70!black},
 ]
 % colonnes x = 0 / 5.3 ; lignes y = 0 / -2.5 / -5.0
-\node[st, fill=beamer_color!12] (det) at (0,0)      {DETECTED};
-\node[st, fill=beamer_color!28] (rei) at (5.3,0)    {REINVESTIGATING};
-\node[st, fill=beamer_color!28] (inv) at (0,-2.5)   {INVESTIGATING};
-\node[st, fill=beamer_color!45] (wfr) at (5.3,-2.5) {WAITING\_FOR\_\\REVIEW};
-\node[st, fill=beamer_color!62] (val) at (5.3,-5.0) {VALIDATED};
+\node[st, fill=beamer_color!12] (det) at (0.5,0)      {DETECTED};
+\node[st, fill=beamer_color!28] (rei) at (6.5,0)    {REINVESTIGATING};
+\node[st, fill=beamer_color!28] (inv) at (0.5,-3)   {INVESTIGATING};
+\node[st, fill=beamer_color!45] (wfr) at (6.5,-3) {WAITING\_FOR\_REVIEW};
+\node[st, fill=beamer_color!62] (val) at (6.5,-5.0) {VALIDATED};
 \node[term]                     (clo) at (0,-5.0)   {CLOSED};
 % entrée / sortie
 \node[circle, fill=beamer_color!70!black, minimum size=7pt, inner sep=0pt] (ini) at (-2.6,0) {};
 \node[circle, draw=beamer_color!85!black, line width=1pt, minimum size=11pt, inner sep=0pt] (fin) at (-2.6,-5.0) {};
 \node[circle, fill=beamer_color, minimum size=5pt, inner sep=0pt] at (-2.6,-5.0) {};
 % --- descente + chemin nominal ---
-\draw[arr] (ini) -- (det) node[lbl,midway,above]{INCIDENT\_CREATED\\\itshape(corrélation)};
+\draw[arr] (ini) -- (det) node[lbl,midway,above]{INCIDENT\_CREATED\\\itshape(agent corrélation)};
 \draw[arr] (det) -- (inv) node[lbl,midway,left]{INVESTIGATION\_STARTED\\\itshape(agent RCA)};
 \draw[arr] (inv) -- (wfr) node[lbl,midway,above]{INVESTIGATION\_COMPLETE\\\itshape(agent RCA)};
 \draw[arr] (wfr) -- (val) node[lbl,midway,right]{SRE\_VALIDATED\_\\HYPOTHESIS\\\itshape(opérateur)};
@@ -146,7 +146,7 @@
 \draw[arr] (clo) -- (fin);
 % --- boucle de ré-investigation (WAITING_FOR_REVIEW <-> REINVESTIGATING) ---
 \draw[arr] ([xshift=-5mm]wfr.north) -- ([xshift=-5mm]rei.south)
-      node[lbl,midway,left]{SRE\_CONTESTED\_HYPOTHESIS\\ou SRE\_REQUESTED\_EVIDENCE\\\itshape(opérateur)};
+      node[lbl,midway,left]{SRE\_CONTESTED\_HYPOTHESIS\\ou\\ SRE\_REQUESTED\_EVIDENCE\\\itshape(opérateur)};
 \draw[arr] ([xshift=5mm]rei.south) -- ([xshift=5mm]wfr.north)
       node[lbl,midway,right]{INVESTIGATION\_\\COMPLETE\\\itshape(agent RCA)};
 \end{tikzpicture}%
@@ -156,6 +156,10 @@
 {\scriptsize\itshape À tout moment, un incident non résolu peut être \textbf{abandonné} (état ABORTED) — bruit ou alertes refermées, sans post-mortem.}
 \end{frame}
 
+
+\begin{frame}{Conception - }
+    % TODO : technologies, agents, intégration, captures de la plateforme
+\end{frame}
 
 \section{Réalisation}
 
