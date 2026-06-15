@@ -157,7 +157,7 @@
 \end{frame}
 
 
-\begin{frame}{Conception - Orchestration des agents}
+\begin{frame}{Conception - Orchestration multi-agents}
 Choix d'un pattern d'orchestration centralisé
     \begin{figure}
         \centering
@@ -169,8 +169,37 @@ Choix d'un pattern d'orchestration centralisé
     \end{figure}
 \end{frame}
 
-\begin{frame}{Conception - Orchestration des agents}
-    % TODO : technologies, agents, intégration, captures de la plateforme
+\begin{frame}{Conception - Diagramme de classe simplifié}
+\centering
+\includegraphics[width=0.88\linewidth]{class.png}
+
+\vspace{0.3em}
+\begin{block}{}
+\tiny
+\begin{columns}[T]
+\begin{column}{0.5\textwidth}
+\begin{itemize}
+  \item \textbf{Incident} = racine d'agrégat : toute la cohérence d'un incident tourne autour de lui.
+  \item \textbf{Composition} : \textit{Hypothesis}, \textit{Solution}, \textit{Postmortem}, \textit{StateTransition} n'existent que rattachés à un incident.
+  \item \textbf{Agrégation} : les \textit{Alert} préexistent a la collecte avant même la corrélation.
+\end{itemize}
+\end{column}
+\begin{column}{0.5\textwidth}
+\begin{itemize}
+    \item Un \textbf{Incident} regroupe \textbf{1..* Alertes}.
+    
+    \item Un \textbf{Incident} possède \textbf{0..* Hypothèses}.
+    
+    \item Un \textbf{Incident} possède \textbf{0..* Solutions}.
+    
+    \item Un \textbf{Incident} est associé à \textbf{0..1 Postmortem}.
+    
+    \item Un \textbf{Incident} conserve \textbf{1..* Transitions d'état}.
+\end{itemize}
+\end{column}
+\end{columns}
+\end{block}
+
 \end{frame}
 
 \section{Réalisation}
