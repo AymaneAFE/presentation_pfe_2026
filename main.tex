@@ -54,7 +54,7 @@
             \begin{itemize}
                 \item[\ding{45}] Flux d'alertes important et dispersé
                 \item[\ding{45}] Manque d'automatisation
-                \item[\ding{45}] Besoin d'améliorer la productivité des équipes
+                \item[\ding{45}] Besoin d'améliorer la productivité des équipes et assister leur analyse
             \end{itemize}
             
             \end{block}
@@ -68,7 +68,7 @@
         \begin{column}{0.32\textwidth}
             \begin{alertblock}{\centering Question}
             \centering
-            \footnotesize \textbf{Comment doter les équipes techniques d'une plateforme intelligente \\--\\ \textit{capable d'assister la gestion des incidents} \\--\\ pour augmenter la productivité et réduire le MTTR ?}
+            \footnotesize \textbf{Comment doter les équipes techniques d'une plateforme intelligente \\--\\ \textit{capable d'assister la gestion des incidents} \\--\\ pour améliorer la productivité des équipes et réduire le temps de gestion d'un incident ?}
             \end{alertblock}
         \end{column}
     \end{columns}
@@ -217,8 +217,16 @@ Choix d'un pattern d'orchestration centralisé
 
 \section{Demo}
 
-\begin{frame}{Demo}
-    % TODO : métriques des modèles, validation, démonstration
+\begin{frame}{Démo}
+\vfill
+\centering
+\href{run:./demo.mp4}{%
+  \tcbox[on line,
+         colback=beamer_color, colframe=beamer_color, coltext=white,
+         arc=6pt, boxrule=0pt,
+         left=16pt, right=16pt, top=10pt, bottom=10pt]{%
+    \large\bfseries $\blacktriangleright$\;Lancer la vidéo de démonstration}}
+\vfill
 \end{frame}
 
 
@@ -232,7 +240,7 @@ La plateforme \textbf{assiste le cycle de vie complet de l'incident}, l'humain r
 \scriptsize
 \begin{itemize}
   \item[\ding{45}] \textbf{Réduire le bruit} — corrélation automatique des alertes en incidents.
-  \item[\ding{45}] \textbf{Automatisation et Assistance} — hypothèse de cause racine et suggestions de solutions générés intégrant des outils, une base vectorielle et le feedback de l'humain lui même.
+  \item[\ding{45}] \textbf{Automatisation et Assistance} — hypothèse de cause racine et suggestions de solutions générés intégrant une base vectorielle et le feedback de l'humain lui même.
   \item[\ding{45}] \textbf{Capitaliser} — post-mortem généré et indexé (RAG), réutilisable pour les incidents futurs.
 \end{itemize}
 \end{block}
@@ -245,8 +253,49 @@ La plateforme \textbf{assiste le cycle de vie complet de l'incident}, l'humain r
 \end{itemize}
 \end{block}
 \end{frame}
-\begin{frame}{Perspectives et travaux futurs}
-    % TODO : bilan, apports, perspectives d'amélioration
+
+
+\begin{frame}{Perspectives \& travaux futurs}
+
+\begin{columns}[T,onlytextwidth]
+
+    \begin{column}{0.49\textwidth}
+        \begin{persocard}{Enrichissement fonctionnel}
+            - Copilote conversationnel\\[4pt]
+            - Persistance des conversations\\[4pt]
+            - Boucle de contestation et validation\\ des suggestions de solutions
+        \end{persocard}
+    \end{column}
+
+    \begin{column}{0.49\textwidth}
+        \begin{persocard}{Élargissement du contexte d'analyse}
+            - Journaux ELK et autres outils DevOps
+        \end{persocard}
+    \end{column}
+
+\end{columns}
+
+\vspace{0.5cm}
+
+\begin{columns}[T,onlytextwidth]
+
+    \begin{column}{0.49\textwidth}
+        \begin{persocard}{Optimisation de l'architecture}
+            - Migration ciblée vers des modèles open source
+        \end{persocard}
+    \end{column}
+
+    \begin{column}{0.49\textwidth}
+        \begin{persocard}{Mise en production}
+            - Tests en environnement de production réel\\[4pt]
+            - Calcul du MTTR réel\\[4pt]
+            - Documentation technique\\[4pt]
+            - Transfert de compétences
+        \end{persocard}
+    \end{column}
+
+\end{columns}
+
 \end{frame}
 
 

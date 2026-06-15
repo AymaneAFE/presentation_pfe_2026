@@ -74,7 +74,15 @@
 \vfill
 }
 
-
+\definecolor{cardhead}{RGB}{150,38,130}
+\definecolor{cardbody}{RGB}{229,214,235}
+\newtcolorbox{persocard}[1]{%
+  colback=cardbody, colframe=cardbody,
+  colbacktitle=cardhead, coltitle=white,
+  title={#1}, fonttitle=\bfseries\footnotesize, fontupper=\scriptsize,
+  arc=1pt, boxrule=0pt, left=3pt, right=3pt, top=3pt, bottom=3pt,
+  toptitle=2pt, bottomtitle=2pt, titlerule=0pt,
+}
 
 % Réduire la taille du titre pour gagner de la place sur la diapo de titre
 \setbeamerfont{title}{size=\large,series=\bfseries}
