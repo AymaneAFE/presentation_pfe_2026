@@ -114,10 +114,47 @@
 \section{Conception}
 
 \begin{frame}{Conception - Cycle de vie d'un incident}
-    \begin{figure}
-        \centering
-        \includegraphics[width=1\linewidth]{cycle-incident.png}
-    \end{figure}
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[
+  >=Stealth,
+  st/.style={rounded corners=3pt, draw=beamer_color, line width=0.8pt,
+             minimum width=2.6cm, minimum height=0.95cm, align=center,
+             font=\footnotesize\bfseries, text=black},
+  term/.style={st, draw=beamer_color!85!black, fill=beamer_color, text=white},
+  lbl/.style={font=\scriptsize, align=center, inner sep=2pt},
+  arr/.style={->, line width=0.9pt, draw=beamer_color!70!black},
+]
+% --- rangée haute : gauche -> droite ---
+\node[st, fill=beamer_color!12] (det) at (0,0)    {DETECTED};
+\node[st, fill=beamer_color!28] (inv) at (3.6,0)  {INVESTIGATING};
+\node[st, fill=beamer_color!45] (wfr) at (7.2,0)  {WAITING\_FOR\_\\REVIEW};
+\node[st, fill=beamer_color!62] (val) at (10.8,0) {VALIDATED};
+% --- rangée basse : le demi-tour ---
+\node[st, fill=beamer_color!28] (rei) at (7.2,-3.0)  {REINVESTIGATING};
+\node[term]                     (clo) at (10.8,-3.0) {CLOSED};
+% --- entrée / sortie ---
+\node[circle, fill=beamer_color!70!black, minimum size=7pt, inner sep=0pt] (ini) at (-2.4,0) {};
+\node[circle, draw=beamer_color!85!black, line width=1pt, minimum size=11pt, inner sep=0pt] (fin) at (10.8,-5.0) {};
+\node[circle, fill=beamer_color, minimum size=5pt, inner sep=0pt] at (10.8,-5.0) {};
+% --- chemin nominal ---
+\draw[arr] (ini) -- (det) node[lbl,midway,above]{INCIDENT\_CREATED\\\itshape(corrélation)};
+\draw[arr] (det) -- (inv) node[lbl,midway,above]{INVESTIGATION\_STARTED\\\itshape(agent RCA)};
+\draw[arr] (inv) -- (wfr) node[lbl,midway,above]{INVESTIGATION\_COMPLETE\\\itshape(agent RCA)};
+\draw[arr] (wfr) -- (val) node[lbl,midway,above]{SRE\_VALIDATED\_HYPOTHESIS\\\itshape(opérateur)};
+% --- demi-tour : VALIDATED -> CLOSED ---
+\draw[arr] (val) -- (clo) node[lbl,midway,left]{SRE\_VALIDATED\_\\SOLUTIONS\\\itshape(opérateur)};
+\draw[arr] (clo) -- (fin);
+% --- boucle de ré-investigation ---
+\draw[arr] ([xshift=-5mm]wfr.south) -- ([xshift=-5mm]rei.north)
+      node[lbl,midway,left]{SRE\_CONTESTED\_HYPOTHESIS\\ou SRE\_REQUESTED\_EVIDENCE\\\itshape(opérateur)};
+\draw[arr] ([xshift=5mm]rei.north) -- ([xshift=5mm]wfr.south)
+      node[lbl,midway,right]{INVESTIGATION\_\\COMPLETE\\\itshape(agent RCA)};
+\end{tikzpicture}%
+}
+
+\vspace{0.6em}
+{\scriptsize\itshape À tout moment, un incident non résolu peut être \textbf{abandonné} (état ABORTED) — bruit ou alertes refermées, sans post-mortem.}
 \end{frame}
 
 
