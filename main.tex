@@ -23,13 +23,13 @@
 \section{Contexte général}
 
 \subsection{Présentation de l'entreprise}
-\begin{frame}{Présentation de l'entreprise}
+\begin{frame}{Présentation de l'entreprise - Historique}
     \begin{figure}
         \centering
         \includegraphics[width=1\linewidth]{chronologie.png}
     \end{figure}
 \end{frame}
-\begin{frame}{Présentation de l'entreprise}
+\begin{frame}{Présentation de l'entreprise - Activités}
 \begin{figure}
     \centering
     \includegraphics[width=1\linewidth]{activites.png}
@@ -79,14 +79,43 @@
 \end{frame}
 
 \section{Gestion des incidents}
-
-\begin{frame}{Gestion des incidents}
+\begin{frame}{Gestion des incidents - Alerte et Incident}
+    \begin{columns}[c] % [c] = centré verticalement ; [T] pour aligner par le haut
+        % --- Colonne gauche : le schéma ---
+        \begin{column}{0.50\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\linewidth]{symptomes.png}
+            \end{figure}
+        \end{column}
+        % --- Colonne droite : l'exemple réel ---
+        \begin{column}{0.50\textwidth}
+            \footnotesize
+            \begin{block}{Exemple : hôte \texttt{ubuntu-target} éteint}
+                Une panne réelle injectée : l'hôte
+                \texttt{ubuntu-target} (192.168.10.130) est
+                volontairement éteint. Centreon détecte les ressources
+                en défaut et génère \textbf{cinq alertes} :
+                \begin{enumerate}
+                    \item Vérification d'hôte (\textit{ping})
+                    \item Vérification de service \textit{Ping} dédiée
+                    \item Trois sondes SNMP \textit{Load}
+                    \item \textit{Swap}
+                    \item \textit{Memory}
+                \end{enumerate}
+                \vspace{0.3em}
+                Un \textbf{seul incident source} à l'origine de toutes ces
+                alertes : d'où la nécessité de les \textbf{corréler}.
+            \end{block}
+        \end{column}
+    \end{columns}
+\end{frame}
+\begin{frame}{Gestion des incidents selon ITIL}
     \begin{figure}
         \centering
         \includegraphics[width=1\linewidth]{process.png}
     \end{figure}
 \end{frame}
-
 
 \section{Conception}
 
