@@ -41,8 +41,33 @@
 \end{frame}
 
 \subsection{Contexte}
-\begin{frame}{Mise en Contexte}
+\begin{frame}{Mise en Contexte - Environnement de production}
+\centering
+\resizebox{0.8\linewidth}{!}{%
+\begin{tikzpicture}[
+  >=Stealth, font=\footnotesize,
+  zone/.style={rounded corners=4pt, draw=beamer_color, line width=0.8pt,
+               text width=11cm, align=left, inner sep=8pt, text=black},
+  arr/.style={->, line width=1pt, draw=beamer_color!70!black},
+]
+\node[zone, fill=beamer_color!12] (cicd) at (0,0) {%
+  \textbf{Chaîne de livraison continue (CI/CD)}\\[2pt]
+  GitLab \textbullet\ Jenkins \textbullet\ Docker Hub \textit{(registre d'images)}
+  \textbullet\ Nexus \textit{(artefacts)} \textbullet\ ArgoCD \textit{(GitOps)}};
+\node[zone, fill=beamer_color!30] (host) at (0,-2.7) {%
+  \textbf{Hébergement — OpenShift}\\[2pt]
+  Applications inwi : \textit{inwi.ma}, \textit{My inwi}, espace client, services internes…};
+\node[zone, fill=beamer_color!48] (sup) at (0,-5.6) {%
+  \textbf{Supervision \& gestion d'incidents}\\[2pt]
+  Centreon \textit{(infra/services)} \textbullet\ ELK — Elasticsearch/Logstash/Kibana
+  \textit{(logs)} \textbullet\ ServiceNow \textit{(tickets)}\\[2pt]
+  \textbf{Équipe technique \& supervision} : surveille, trie, gère les incidents};
+\draw[arr] (cicd) -- (host) node[midway,right,font=\scriptsize]{~déploie};
+\draw[arr] (host) -- (sup) node[midway,right,font=\scriptsize]{~supervise};
+\end{tikzpicture}}
 
+\vspace{0.4em}
+{\scriptsize\itshape Des dizaines d'applications supervisées en continu $\Rightarrow$ un \textbf{flux d'alertes important et dispersé} entre Centreon et ELK.}
 \end{frame}
 
 \subsection{Problématique}
@@ -81,10 +106,20 @@
 
 \subsection{Objectifs}
 \begin{frame}{Objectifs}
-    \begin{figure}
-        \centering
-        \includegraphics[width=1\linewidth]{obj.png}
-    \end{figure}
+\small
+Répondre à la problématique suppose quatre capacités fonctionnelles —
+les \textbf{points fixes} qui structureront ensuite la conception :
+\vspace{0.5em}
+\begin{block}{}
+\setlength{\itemsep}{7pt}
+\begin{itemize}
+  \item[\ding{45}] \textbf{Réduire le bruit} — regrouper automatiquement les alertes corrélées en incidents exploitables.
+  \item[\ding{45}] \textbf{Assister l'analyse} — produire, pour chaque incident, une hypothèse de cause racine et des pistes de solution documentées.
+  \item[\ding{45}] \textbf{Garder l'humain décideur} — validation ou contestation des propositions ; aucune action corrective automatique.
+  \item[\ding{45}] \textbf{Capitaliser} — générer un post-mortem par incident et constituer une base de connaissances réutilisable.
+\end{itemize}
+\end{block}
+% Ancienne version (image) : \includegraphics[width=\linewidth]{obj.png}
 \end{frame}
 
 \section{Gestion des incidents}
